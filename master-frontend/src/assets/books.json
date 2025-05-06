@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "title": "1984",
+    "author": "Orwell",
+    "price": 12.5,
+    "cover": "/covers/1984.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Cien años de soledad",
+    "author": "García Márquez",
+    "price": 15.0,
+    "cover": "/covers/cien.jpg"
+  },
+  {
+    "id": "3",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "price": 10.99,
+    "cover": "/covers/gatsby.jpg"
+  },
+  {
+    "id": "4",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "price": 11.5,
+    "cover": "/covers/mockingbird.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "price": 14.0,
+    "cover": "/covers/mobydick.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "price": 9.5,
+    "cover": "/covers/pride.jpg"
+  },
+  {
+    "id": "7",
+    "title": "War and Peace",
+    "author": "Leo Tolstoy",
+    "price": 20.0,
+    "cover": "/covers/warpeace.jpg"
+  },
+  {
+    "id": "8",
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "price": 15.75,
+    "cover": "/covers/crime.jpg"
+  },
+  {
+    "id": "9",
+    "title": "The Odyssey",
+    "author": "Homer",
+    "price": 13.25,
+    "cover": "/covers/odyssey.jpg"
+  },
+  {
+    "id": "10",
+    "title": "The Catcher in the Rye",
+    "author": "J. D. Salinger",
+    "price": 12.0,
+    "cover": "/covers/catcher.jpg"
+  }
+]

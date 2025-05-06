@@ -1,0 +1,24 @@
+.landing {
+    &__content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding: var(--space-lg);
+    text-align: center;
+    }
+    
+    &__title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+    }
+    
+    &__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    }
+    }

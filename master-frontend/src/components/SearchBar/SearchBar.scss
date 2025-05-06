@@ -1,0 +1,27 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--color-bg);
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+    padding: var(--space-xs) var(--space-sm);
+    transition: border-color var(--transition-speed);
+  
+    &__input {
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--color-text);
+      font-size: 1rem;
+      flex: 1;
+  
+      &::placeholder {
+        color: var(--color-text-secondary);
+      }
+    }
+  
+    &:focus-within {
+      border-color: var(--color-primary);
+    }
+  }
+  

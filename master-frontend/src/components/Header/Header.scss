@@ -1,0 +1,40 @@
+.header {
+    background-color: var(--color-surface);
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  
+    &__logo {
+      cursor: pointer;
+      .header__logo-text {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+      }
+    }
+  
+    &__nav {
+      display: flex;
+      align-items: center;
+      & > * + * {
+        margin-left: var(--space-md);
+      }
+    }
+  
+    &__cart {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: color var(--transition-speed);
+  
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+  }
+  
