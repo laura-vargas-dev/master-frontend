@@ -20,10 +20,7 @@
   
     &__nav {
       display: flex;
-      align-items: center;
-      & > * + * {
-        margin-left: var(--space-md);
-      }
+      align-items: flex-start;
     }
   
     &__cart {
@@ -37,6 +34,18 @@
       &:hover {
         color: var(--color-secondary);
       }
+    }
+
+    &__cart__badge {
+      color: var(--color-text);
+      background-color: red;
+      font-size: 0.6rem;
+      width: 17px;
+      height: 17px;
+      display: flex;
+      align-items: center;
+      justify-content:center;
+      border-radius: 50%;
     }
   }
   
