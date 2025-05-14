@@ -1,18 +1,20 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import useCart from '../../hooks/useCart';
-import './CheckoutPage.scss';
+import { useNavigate } from "react-router-dom";
+import "./CheckoutPage.scss";
+import Cart from "../../components/Cart/Cart";
+import { useCartContext } from "../../components/CartContext";
 
 const CheckoutPage = () => {
-  const { cart, clearCart } = useCart();
+  const { cart, clearCart } = useCartContext();
   const navigate = useNavigate();
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+  const total = cart
+    .reduce((sum, item) => sum + item.price * item.amount, 0)
+    .toFixed(2);
 
   const handleConfirm = () => {
-    alert('Pedido realizado con éxito');
+    alert("Pedido realizado con éxito");
     clearCart();
-    navigate('/home');
+    navigate("/home");
   };
 
   if (cart.length === 0) {
@@ -26,21 +28,14 @@ const CheckoutPage = () => {
   return (
     <div className="checkout">
       <h2 className="checkout__title">Resumen de tu pedido</h2>
-      <ul className="checkout__list">
-        {cart.map((item) => (
-          <li key={item.id} className="checkout__item">
-            {item.title} - ${item.price.toFixed(2)}
-          </li>
-        ))}
-      </ul>
-      <div className="checkout__footer">
-        <span className="checkout__total">Total: ${total}</span>
-        <button
-          className="checkout__confirm-button"
-          onClick={handleConfirm}
-        >
-          Confirmar pago
-        </button>
+      <div className="checkout__content">
+        <Cart />
+        <div className="checkout__content__footer">
+          <span className="checkout__total">Total: ${total}</span>
+          <button className="checkout__confirm-button" onClick={handleConfirm}>
+            Confirmar pago
+          </button>
+        </div>
       </div>
     </div>
   );
