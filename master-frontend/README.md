@@ -83,7 +83,7 @@ src/
 ├── pages/                # Vistas ligadas a rutas
 ├── styles/               # SCSS globales y variables
 ├── App.jsx               # Configuración de rutas
-├── index.jsx             # Punto de entrada
+├── main.jsx             # Punto de entrada
 └── vite.config.js        # Configuración de Vite
 ```
 

@@ -6,7 +6,7 @@ const Landing = () => {
 	useRedirect(5000, '/home');
 
 	return (
-		<>
+
 			<div className='landing__contenedor'>
 				<div className='landing__overlay'>
 					<div className='landing__loader'>
@@ -15,7 +15,6 @@ const Landing = () => {
 					</div>
 				</div>
 			</div>
-		</>
 	);   
 };
 
