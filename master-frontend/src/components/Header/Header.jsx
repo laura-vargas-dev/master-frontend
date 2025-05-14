@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className="header">
       <button type="button" className="header__logo" onClick={handleLogoClick}>
-        <h1 className="header__logo-text">BookStore</h1>
+        <h1 className="header__logo-text">Relatos de Papel</h1>
       </button>
       <nav className="header__nav">
         <button
