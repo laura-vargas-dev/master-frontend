@@ -1,18 +1,17 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import useCart from '../../hooks/useCart';
-import CartItem from '../CartItem/CartItem';
-import './Cart.scss';
+import CartItem from "../CartItem/CartItem";
+import "./Cart.scss";
+import { useCartContext } from "../CartContext";
 
 const Cart = () => {
-  const { cart, removeFromCart } = useCart();
-  const navigate = useNavigate();
+  const { cart, removeFromCart, editAmountItem } = useCartContext();
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+  const changeItemAmount = (item, amount) => {
+    editAmountItem(item, amount);
+  };
 
   return (
     <div className="cart">
-      <h2 className="cart__title">Carrito</h2>
+      <h2 className="cart__title">Tus productos</h2>
       {cart.length === 0 ? (
         <p className="cart__empty">Tu carrito está vacío.</p>
       ) : (
@@ -23,18 +22,10 @@ const Cart = () => {
                 key={item.id}
                 item={item}
                 onRemove={() => removeFromCart(item.id)}
+                onEdit={(amount) => changeItemAmount(item, amount)}
               />
             ))}
           </ul>
-          <div className="cart__footer">
-            <span className="cart__total">Total: ${total}</span>
-            <button
-              className="cart__checkout-button"
-              onClick={() => navigate('/checkout')}
-            >
-              Checkout
-            </button>
-          </div>
         </>
       )}
     </div>

@@ -1,56 +1,78 @@
 .checkout {
-    padding: var(--space-lg);
-    background: var(--color-bg);
-    min-height: calc(100vh - 80px);
-  
-    &__empty {
-      color: var(--color-text-secondary);
-      text-align: center;
-      margin-top: var(--space-lg);
-    }
-  
-    &__title {
-      font-size: 1.75rem;
-      margin-bottom: var(--space-md);
-      color: var(--color-primary);
-    }
-  
-    &__list {
-      list-style: none;
-      margin: 0 0 var(--space-md);
-      padding: 0;
-    }
-  
-    &__item {
-      font-size: 1rem;
-      color: var(--color-text);
-      margin-bottom: var(--space-sm);
-    }
-  
+  padding: var(--space-lg);
+  background: var(--color-bg);
+  min-height: calc(100vh - 80px);
+  width: 75%;
+  margin: auto;
+
+  &__empty {
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-top: var(--space-lg);
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 3rem;
+
     &__footer {
+      background: var(--color-surface);
+      padding: var(--space-md);
+      border-radius: 8px;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-  
-    &__total {
-      font-weight: bold;
-      font-size: 1.25rem;
-      color: var(--color-text);
-    }
-  
-    &__confirm-button {
-      background: var(--color-secondary);
-      border: none;
-      padding: var(--space-sm) var(--space-md);
-      border-radius: 4px;
-      color: var(--color-text);
-      cursor: pointer;
-      transition: background var(--transition-speed);
-  
-      &:hover {
-        background: var(--color-primary);
-      }
+  }
+
+  &__item {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  &__total {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--color-text);
+  }
+
+  &__confirm-button {
+    background: var(--color-secondary);
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background var(--transition-speed);
+
+    &:hover {
+      background: var(--color-primary);
     }
   }
-  
+}
+
+@media (max-width: 425px) {
+  .checkout {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout {
+    &__content {
+      gap: 1em;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}
