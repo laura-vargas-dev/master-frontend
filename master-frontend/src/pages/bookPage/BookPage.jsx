@@ -1,11 +1,12 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import booksData from '../../assets/books.json';
 import './BookPage.scss';
 
 const BookPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
   const book = booksData.find((b) => b.id === id);
   const { addToCart, cart } = useCart();
 
@@ -15,9 +16,11 @@ const BookPage = () => {
 
   const isInCart = cart.some((item) => item.id === book.id);
   const handleAdd = () => {
-    if (!isInCart) addToCart(book);
+    if (!isInCart) {
+      addToCart(book);
+      navigate('/checkout');
+    }
   };
-
   return (
     <div className="book-page">
       <div className="book-page__image-wrapper">
