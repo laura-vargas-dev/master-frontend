@@ -1,9 +1,10 @@
 .home {
-    padding: var(--space-lg);
-    background: var(--color-bg);
-    min-height: calc(100vh - 80px); /* Ajusta según altura de Header */
-  
-    &__list {
-      margin-top: var(--space-lg);
-    }
+  position: relative; /* 🔧 Necesario para posicionar el SearchBar */
+  padding: var(--space-lg);
+  background: var(--color-bg);
+  min-height: calc(100vh - 80px); /* Ajusta según altura de Header */
+
+  &__list {
+    margin-top: var(--space-lg);
   }
+}
