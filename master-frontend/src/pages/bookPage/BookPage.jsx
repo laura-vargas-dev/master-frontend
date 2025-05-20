@@ -1,5 +1,4 @@
 import { useParams,  useNavigate} from "react-router-dom";
-import useCart from '../../hooks/useCart';
 import booksData from "../../assets/books.json";
 import "./BookPage.scss";
 import { useCartContext } from "../../components/CartContext";
