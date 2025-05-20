@@ -22,25 +22,35 @@ export default function useCart() {
   }, [cart]);
 
   const addToCart = (book) => {
-    book.amount = 1;
-    setCart((prev) => [...prev, book]);
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === book.id);
+      if (existing) {
+        return prev.map((item) =>
+            item.id === book.id ? { ...item, amount: item.amount + 1 } : item
+        );
+      }
+      return [...prev, { ...book, amount: 1 }];
+    });
   };
 
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
-
   const clearCart = () => setCart([]);
 
   const editAmountItem = (book, amount) => {
     setCart((prev) => {
+      if (amount <= 0) {
+        return prev.filter((item) => item.id !== book.id);
+      }
+
       const existingItem = prev.find((item) => item.id === book.id);
       if (existingItem) {
         return prev.map((item) =>
-          item.id === book.id ? { ...item, amount: amount } : item
+            item.id === book.id ? { ...item, amount: amount } : item
         );
       } else {
-        return [...prev, { ...book, amount: 1 }];
+        return [...prev, { ...book, amount: amount }];
       }
     });
   };
