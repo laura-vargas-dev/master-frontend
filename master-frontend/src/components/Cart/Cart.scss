@@ -1,52 +1,51 @@
 .cart {
-    background: var(--color-surface);
-    padding: var(--space-md);
-    border-radius: 8px;
-    max-width: 350px;
-    width: 100%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  
-    &__title {
-      font-size: 1.5rem;
-      margin-bottom: var(--space-sm);
-      color: var(--color-primary);
-    }
-  
-    &__empty {
-      color: var(--color-text-secondary);
-    }
-  
-    &__list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      max-height: 300px;
-      overflow-y: auto;
-      margin-bottom: var(--space-md);
-    }
-  
-    &__footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  
-    &__total {
-      font-weight: bold;
-      color: var(--color-text);
-    }
-  
-    &__checkout-button {
-      background: var(--color-secondary);
-      border: none;
-      padding: var(--space-sm) var(--space-md);
-      border-radius: 4px;
-      color: var(--color-text);
-      cursor: pointer;
-      transition: background var(--transition-speed);
-  
-      &:hover {
-        background: var(--color-primary);
-      }
+  background: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: 8px;
+  max-width: 100%;
+  width: 120rem;
+  margin: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+
+  &__empty {
+    color: var(--color-text-secondary);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: var(--space-md);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__total {
+    font-weight: bold;
+    color: var(--color-text);
+  }
+
+  &__checkout-button {
+    background: var(--color-secondary);
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background var(--transition-speed);
+
+    &:hover {
+      background: var(--color-primary);
     }
   }
+}
