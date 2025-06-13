@@ -3,7 +3,7 @@ spring:
     name: ${spring.application.name}
 
   datasource:
-    url: jdbc:${MYSQL_MYSQL_URL}?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://trolley.proxy.rlwy.net:27932/railway?useSSL=false&serverTimezone=UTC
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver

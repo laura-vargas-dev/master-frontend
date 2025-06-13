@@ -1,0 +1,17 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+
+    plugins {
+        id 'org.springframework.boot' version '3.5.0'
+    }
+}
+
+rootProject.name = 'master-fronted'
+
+include 'eureka-server'
+include 'api-gateway'
+include 'ms-books-catalogue'
+include 'master-backend'
