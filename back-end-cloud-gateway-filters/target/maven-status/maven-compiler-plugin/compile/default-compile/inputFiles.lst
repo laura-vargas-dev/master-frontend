@@ -1,0 +1,7 @@
+C:\Users\laura\Documents\UNIR\Act2\back-end-cloud-gateway-filters\src\main\java\com\unir\gateway\config\MapperConfig.java
+C:\Users\laura\Documents\UNIR\Act2\back-end-cloud-gateway-filters\src\main\java\com\unir\gateway\decorator\RequestDecoratorFactory.java
+C:\Users\laura\Documents\UNIR\Act2\back-end-cloud-gateway-filters\src\main\java\com\unir\gateway\decorator\UniversalRequestDecorator.java
+C:\Users\laura\Documents\UNIR\Act2\back-end-cloud-gateway-filters\src\main\java\com\unir\gateway\filter\RequestTranslationFilter.java
+C:\Users\laura\Documents\UNIR\Act2\back-end-cloud-gateway-filters\src\main\java\com\unir\gateway\GatewayAndFiltersApplication.java
+C:\Users\laura\Documents\UNIR\Act2\back-end-cloud-gateway-filters\src\main\java\com\unir\gateway\model\GatewayRequest.java
+C:\Users\laura\Documents\UNIR\Act2\back-end-cloud-gateway-filters\src\main\java\com\unir\gateway\utils\RequestBodyExtractor.java
