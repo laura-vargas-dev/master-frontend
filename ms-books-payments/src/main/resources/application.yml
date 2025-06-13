@@ -35,5 +35,5 @@ eureka:
 
 ## Configuracion secundaria
 getBook:
-  url: http://ms-books-catalogue/books/%s
+  url: http://ms-books-catalogue/api/books/%s
 
