@@ -1,0 +1,7 @@
+com\unir\gateway\filter\RequestTranslationFilter.class
+com\unir\gateway\model\GatewayRequest.class
+com\unir\gateway\config\MapperConfig.class
+com\unir\gateway\utils\RequestBodyExtractor.class
+com\unir\gateway\decorator\RequestDecoratorFactory.class
+com\unir\gateway\decorator\UniversalRequestDecorator.class
+com\unir\gateway\GatewayAndFiltersApplication.class

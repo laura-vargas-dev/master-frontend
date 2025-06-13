@@ -17,19 +17,22 @@ import java.util.Objects;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@RequestMapping("/api/purchases")
 public class PurchaseController {
 
     private final PurchaseService service;
 
-    @GetMapping("/purchases")
+    // GET /api/purchases
+    @GetMapping
     public ResponseEntity<List<Purchase>> getPurchases() {
         List<Purchase> purchases = service.getPurchases();
         return ResponseEntity.ok(Objects.requireNonNullElse(purchases, Collections.emptyList()));
     }
 
-    @GetMapping("/purchases/{id}")
-    public ResponseEntity<Purchase> getOrder(@PathVariable String id) {
-        Purchase order = service.getPurchase(id);
+    // GET /api/purchases/{purchaseId}
+    @GetMapping("/{purchaseId}")
+    public ResponseEntity<Purchase> getOrder(@PathVariable String purchaseId) {
+        Purchase order = service.getPurchase(purchaseId);
         if (order != null) {
             return ResponseEntity.ok(order);
         } else {
@@ -37,7 +40,8 @@ public class PurchaseController {
         }
     }
 
-    @PostMapping("/purchases")
+    // POST /api/purchases/
+    @PostMapping
     public ResponseEntity<Purchase> createOrder(@RequestBody @Valid PurchaseRequest request) {
         Purchase created = service.createPurchase(request);
         if (created != null) {
@@ -46,8 +50,8 @@ public class PurchaseController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    @PutMapping("/purchases/{purchaseId}")
+    // PUT /api/purchases/
+    @PutMapping("/{purchaseId}")
     public ResponseEntity<Purchase> updatePurchase(@PathVariable String purchaseId, @RequestBody PurchaseDto body) {
         Purchase updated = service.updatePurchase(purchaseId, body);
         if (updated != null) {
@@ -56,8 +60,8 @@ public class PurchaseController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    @PatchMapping("/purchases/{purchaseId}")
+    // PATCH /api/purchases/{purchaseId}
+    @PatchMapping("/{purchaseId}")
     public ResponseEntity<Purchase> patchBook(@PathVariable String purchaseId, @RequestBody String patchBody) {
         Purchase patched = service.updatePurchase(purchaseId, patchBody);
         if (patched != null) {
@@ -66,8 +70,8 @@ public class PurchaseController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    @DeleteMapping("/purchases/{purchaseId}")
+    // DELETE /api/purchases/{purchaseId}
+    @DeleteMapping("/{purchaseId}")
     public ResponseEntity<Void> deletePurchase(@PathVariable String purchaseId) {
         Boolean removed = service.deletePurchase(purchaseId);
         if (Boolean.TRUE.equals(removed)) {
