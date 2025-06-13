@@ -14,15 +14,15 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="master-fronted.api-gateway" options="-parameters" />
-      <module name="master-fronted.api-gateway.main" options="-parameters" />
-      <module name="master-fronted.api-gateway.test" options="-parameters" />
-      <module name="master-fronted.eureka-server" options="-parameters" />
-      <module name="master-fronted.eureka-server.main" options="-parameters" />
-      <module name="master-fronted.eureka-server.test" options="-parameters" />
-      <module name="master-fronted.ms-books-catalogue" options="-parameters" />
-      <module name="master-fronted.ms-books-catalogue.main" options="-parameters" />
-      <module name="master-fronted.ms-books-catalogue.test" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="api-gateway.main" options="-parameters" />
+      <module name="api-gateway.test" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="eureka-server.main" options="-parameters" />
+      <module name="eureka-server.test" options="-parameters" />
+      <module name="ms-books-catalogue" options="-parameters" />
+      <module name="ms-books-catalogue.main" options="-parameters" />
+      <module name="ms-books-catalogue.test" options="-parameters" />
     </option>
   </component>
 </project>
