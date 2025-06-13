@@ -28,7 +28,7 @@ Este microservicio expone una API REST para consultar, crear, actualizar y elimi
 * ☕ **Java 17+**
 * 🛠️ **Spring Boot**
 * 🗄️ **Spring Data JPA**
-* 🐘 **Base de datos relacional** (ej: PostgreSQL/H2)
+* 🐘 **Base de datos relacional** (ej: MySQL/H2)
 * 📄 **OpenAPI/Swagger** (documentación de la API)
 * 🧪 **JUnit** (tests)
 
@@ -110,4 +110,10 @@ La documentación interactiva de la API está disponible en `/swagger-ui.html` (
 - Uso de DTOs para la comunicación con el cliente.
 - Manejo de errores centralizado con controladores de excepciones.
 
+## Autores
+
+- Grupo Tokio - UNIR
+
 ---
+
+> Para más detalles sobre los filtros y la lógica de transformación, consulta la documentación en el propio código fuente.

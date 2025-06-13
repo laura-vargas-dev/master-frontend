@@ -348,7 +348,7 @@
 					"name": "Catalogue",
 					"item": [
 						{
-							"name": "Get all books gateway",
+							"name": "Get all books with filters gateway",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -398,6 +398,93 @@
 										"ms-books-catalogue",
 										"api",
 										"books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify book completely gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PUT\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"id\": 1,\r\n        \"title\": \"El guardián invisible\",\r\n        \"author\": \"Dolores Redondo\",\r\n        \"publicationDate\": \"2013-01-15\",\r\n        \"category\": \"Misterio\",\r\n        \"isbn\": \"9788408114178\",\r\n        \"rating\": 4.5,\r\n        \"visible\": true,\r\n        \"stock\": 6,\r\n        \"price\": 15.99\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify book partially gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PATCH\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"stock\": 16,\r\n        \"price\": 15.99\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete book gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"DELETE\",\r\n    \"queryParams\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books/11",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books",
+										"11"
 									]
 								}
 							},
@@ -459,6 +546,93 @@
 										"ms-books-payments",
 										"api",
 										"purchases"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify purchase completelly gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PUT\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"id\": 4,\r\n        \"purchaseDate\": \"2025-06-12T00:00:00.000+00:00\",\r\n        \"totalAmount\": 5.0,\r\n        \"books\": [\r\n            \"1\",\r\n            \"3\",\r\n            \"4\"\r\n        ],\r\n        \"customerName\": \"Laura Vargas\",\r\n        \"customerEmail\": \"laura@email.com\",\r\n        \"status\": \"PENDING\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify purchase partially gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PATCH\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"totalAmount\": 3.0,\r\n        \"status\": \"COMPLETED\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete purchase gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"DELETE\",\r\n    \"queryParams\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases/6",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases",
+										"6"
 									]
 								}
 							},
