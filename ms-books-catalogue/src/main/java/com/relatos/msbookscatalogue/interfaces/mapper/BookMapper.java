@@ -3,9 +3,11 @@ package com.relatos.msbookscatalogue.interfaces.mapper;
 import com.relatos.msbookscatalogue.application.dto.BookDto;
 import com.relatos.msbookscatalogue.domain.model.Book;
 import com.relatos.msbookscatalogue.infrastructure.persistence.BookEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+@Component
 public class BookMapper {
 
     // Convierte BookEntity -> Book (dominio)
@@ -26,7 +28,7 @@ public class BookMapper {
     }
 
     // Convierte Book (dominio) -> BookEntity
-    public static BookEntity toEntity(Book domain) {
+    public BookEntity toEntity(Book domain) {
         if (Objects.isNull(domain)) return null;
         return BookEntity.builder()
                 .id(domain.getId())
@@ -43,7 +45,7 @@ public class BookMapper {
     }
 
     // Convierte Book (dominio) -> BookDto (respuesta REST)
-    public static BookDto toDto(Book domain) {
+    public BookDto toDto(Book domain) {
         if (Objects.isNull(domain)) return null;
         return BookDto.builder()
                 .id(domain.getId())
