@@ -75,15 +75,15 @@ class BookControllerTests {
         books.add(testBook);
 
         when(booksService.getBooks(null, null, null, null,
-                null, null, null, null, null)).thenReturn(books);
+                null, null, null, null, null, null)).thenReturn(books);
 
         ResponseEntity<List<Book>> response = bookController.getBooks(null, null, null,
-                null,null, null, null, null, null, null);
+                null,null, null, null, null, null, null, null);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(books, response.getBody());
         verify(booksService, times(1)).getBooks(null, null, null,
-                null,null, null, null, null, null);
+                null,null, null, null, null, null, null);
     }
 
     @Test

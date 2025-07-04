@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface BooksService {
 
     List<Book> getBooks(String title, String author, String publicationDate, String category,
-                        String isbn, Double rating, Boolean visible, Integer stock, Double price);
+                        String isbn, Double rating, Boolean visible, Integer stock, Double price, String imgUlrl);
 
     Book getBook(String bookId);
 

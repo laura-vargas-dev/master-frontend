@@ -1,0 +1,28 @@
+## Configuracion de Spring
+spring:
+  application:
+    name: ms-books-elasticsearch
+
+## Configuracion de Instancia
+server:
+  port: 8087
+  fullAddress: ${HOST:http://localhost}:${PORT:${server.port}}
+
+## Configuracion del cliente de Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    hostname: ms-books-elasticsearch
+
+## Configuracion Elasticsearch
+elasticsearch:
+  host: ${ELASTICSEARCH_HOST:unir-books-3755574832.us-east-1.bonsaisearch.net}
+  credentials:
+    user: ${ELASTICSEARCH_USER:33g8e6562s}
+    password: ${ELASTICSEARCH_PWD:1tmegamo5r}
+logging:
+  level:
+    tracer: TRACE

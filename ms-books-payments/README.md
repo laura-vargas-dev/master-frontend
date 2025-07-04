@@ -21,12 +21,12 @@ Este microservicio permite registrar, consultar, modificar y eliminar compras de
 
 | Método | Endpoint                | Descripción                        |
 |--------|-------------------------|------------------------------------|
-| GET    | `/purchases`            | Listar todas las compras           |
-| GET    | `/purchases/{id}`       | Obtener una compra por ID          |
-| POST   | `/purchases`            | Crear una nueva compra             |
-| PUT    | `/purchases/{id}`       | Modificar completamente una compra |
-| PATCH  | `/purchases/{id}`       | Modificar parcialmente una compra  |
-| DELETE | `/purchases/{id}`       | Eliminar una compra                |
+| GET    | `/api/purchases`            | Listar todas las compras           |
+| GET    | `/api/purchases/{id}`       | Obtener una compra por ID          |
+| POST   | `/api/purchases`            | Crear una nueva compra             |
+| PUT    | `/api/purchases/{id}`       | Modificar completamente una compra |
+| PATCH  | `/api/purchases/{id}`       | Modificar parcialmente una compra  |
+| DELETE | `/api/purchases/{id}`       | Eliminar una compra                |
 
 ## Ejemplo de request para crear una compra
 

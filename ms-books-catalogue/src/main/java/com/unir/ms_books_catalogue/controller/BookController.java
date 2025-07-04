@@ -36,10 +36,11 @@ public class BookController {
             @RequestParam(required = false) Double rating,
             @RequestParam(required = false) Boolean visible,
             @RequestParam(required = false) Integer stock,
+            @RequestParam(required = false) String imgUlrl,
             @RequestParam(required = false) Double price) {
         log.info("headers: {}", headers);
         List<Book> books = service.getBooks(title, author, publicationDate, category, isbn,
-                rating, visible, stock, price);
+                rating, visible, stock, price, imgUlrl);
         return ResponseEntity.ok(Objects.requireNonNullElse(books, Collections.emptyList()));
     }
 

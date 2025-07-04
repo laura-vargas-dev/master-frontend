@@ -36,4 +36,6 @@ public class BookDto {
 
     private Double price;
 
+    private String imgUrl;
+
 }

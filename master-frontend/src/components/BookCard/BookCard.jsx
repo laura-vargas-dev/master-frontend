@@ -5,11 +5,12 @@ import PropTypes from "prop-types";
 
 const BookCard = ({ book }) => {
   const navigate = useNavigate();
-  const handleClick = () => navigate(`/book/${book.id}`);  
+  const handleClick = () => navigate(`/book/${book.uid}`);
+
   return (
     <button className="book-card" onClick={handleClick} type="button">
       <img
-        src={book.cover}
+        src={book.imgUrl}
         alt={book.title}
         className="book-card__image"
         onError={({ currentTarget }) => {

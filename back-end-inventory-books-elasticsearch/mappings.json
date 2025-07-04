@@ -1,0 +1,40 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "long"
+      },
+      "title": {
+        "type": "text"
+      },
+      "author": {
+        "type": "search_as_you_type"
+      },
+      "publicationDate": {
+        "type": "date",
+        "format": "yyyy-MM-dd"
+      },
+      "category": {
+        "type": "keyword"
+      },
+      "isbn": {
+        "type": "text"
+      },
+      "rating": {
+        "type": "double"
+      },
+      "visible": {
+        "type": "boolean"
+      },
+      "stock": {
+        "type": "integer"
+      },
+      "price": {
+        "type": "double"
+      },
+      "imgUrl": {
+        "type": "text"
+      }
+    }
+  }
+}

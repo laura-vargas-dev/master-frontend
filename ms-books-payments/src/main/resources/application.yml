@@ -37,3 +37,7 @@ eureka:
 getBook:
   url: http://ms-books-catalogue/api/books/%s
 
+## Configuracion coneccion elastichsearch
+filterBooks:
+  url: http://ms-books-elasticsearch/facets/books%s
+

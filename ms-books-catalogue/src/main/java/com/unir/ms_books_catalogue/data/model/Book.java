@@ -63,6 +63,10 @@ public class Book {
     @Builder.Default
     private Double price = 0.0;
 
+    @NotNull(message = "La imagen es obligatoria")
+    @Column(name="img_url", nullable = false, length = 255)
+    private String imgUrl;
+
     public void update(BookDto bookDto) {
         this.title = bookDto.getTitle();
         this.author = bookDto.getAuthor();
@@ -73,5 +77,6 @@ public class Book {
         this.visible = bookDto.getVisible();
         this.stock = bookDto.getStock();
         this.price = bookDto.getPrice();
+        this.imgUrl = bookDto.getImgUrl();
     }
 }

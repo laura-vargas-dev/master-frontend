@@ -30,12 +30,12 @@ public class BookServiceImpl implements BooksService {
 
     @Override
     public List<Book> getBooks(String title, String author, String publicationDate, String category,
-                               String isbn, Double rating, Boolean visible, Integer stock, Double price) {
+                               String isbn, Double rating, Boolean visible, Integer stock, Double price, String imgUlrl) {
         if (StringUtils.hasLength(title) || StringUtils.hasLength(author) || publicationDate != null
                 || StringUtils.hasLength(category) || StringUtils.hasLength(isbn) || rating != null
-                || visible != null || stock != null || price != null) {
+                || visible != null || stock != null || price != null || imgUlrl != null) {
             return repository.search(title, author, publicationDate != null ? LocalDate.parse(publicationDate) : null,
-                    category, isbn, rating, visible, stock, price);
+                    category, isbn, rating, visible, stock, price, imgUlrl);
         }
         List<Book> books = repository.getBooks();
         return books.isEmpty() ? null : books;

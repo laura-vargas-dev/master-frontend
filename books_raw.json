@@ -1,0 +1,28 @@
+{"index": {"_index": "books"}}
+{"rating": 4.8, "isbn": "9784997613516", "price": 18.5, "visible": true, "publicationDate": "1967-05-30", "id": "1", "category": "Realismo M\u00e1gico", "title": "Cien a\u00f1os de soledad", "author": "Gabriel Garc\u00eda M\u00e1rquez", "imgUrl": "https://images.cdn1.buscalibre.com/fit-in/360x360/1d/6a/1d6ad330c7c40529139ed4cbb0494608.jpg", "stock": 50}
+{"index": {"_index": "books"}}
+{"rating": 4.9, "isbn": "9783696315573", "price": 12.0, "visible": true, "publicationDate": "1943-04-06", "id": "2", "category": "Ficci\u00f3n Infantil", "title": "El Principito", "author": "Antoine de Saint-Exup\u00e9ry", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/5f/03/5f031acab6bf15ab0fd53925bae84242.jpg", "stock": 120}
+{"index": {"_index": "books"}}
+{"rating": 4.7, "isbn": "9796320620283", "price": 25.0, "visible": true, "publicationDate": "1605-01-16", "id": "3", "category": "Novela Cl\u00e1sica", "title": "Don Quijote de la Mancha", "author": "Miguel de Cervantes Saavedra", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/bc/1e/bc1ea2d7004ae114288fb81dad5f283e.jpg", "stock": 30}
+{"index": {"_index": "books"}}
+{"rating": 4.6, "isbn": "9780268501670", "price": 15.75, "visible": true, "publicationDate": "1949-06-08", "id": "4", "category": "Distop\u00eda", "title": "1984", "author": "George Orwell", "imgUrl": "https://images.cdn1.buscalibre.com/fit-in/360x360/10/42/10426f9e9ae4f7cd9eb5d33cef5aa143.jpg", "stock": 80}
+{"index": {"_index": "books"}}
+{"rating": 4.9, "isbn": "9795192826645", "price": 19.99, "visible": true, "publicationDate": "1997-06-26", "id": "5", "category": "Fantas\u00eda", "title": "Harry Potter y la piedra filosofal", "author": "J.K. Rowling", "imgUrl": "https://images.cdn1.buscalibre.com/fit-in/360x360/c4/e9/c4e93e876288b4a0021a0cef47efc8bf.jpg", "stock": 150}
+{"index": {"_index": "books"}}
+{"rating": 4.7, "isbn": "9784538886371", "price": 22.0, "visible": true, "publicationDate": "1866-01-01", "id": "6", "category": "Novela Filos\u00f3fica", "title": "Crimen y Castigo", "author": "Fi\u00f3dor Dostoievski", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/a8/4e/a84e4e45a9c1bc1111ba8cc7092052e9.jpg", "stock": 40}
+{"index": {"_index": "books"}}
+{"rating": 4.9, "isbn": "9784557197042", "price": 24.5, "visible": true, "publicationDate": "1954-07-29", "id": "7", "category": "Fantas\u00eda \u00c9pica", "title": "El Se\u00f1or de los Anillos: La Comunidad del Anillo", "author": "J.R.R. Tolkien", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/69/a4/69a4dd6da2e71e711a978e1fffb06d33.jpg", "stock": 90}
+{"index": {"_index": "books"}}
+{"rating": 4.8, "isbn": "9789542436854", "price": 14.99, "visible": true, "publicationDate": "1950-10-16", "id": "8", "category": "Fantas\u00eda Infantil", "title": "Las Cr\u00f3nicas de Narnia: El Le\u00f3n, la Bruja y el Armario", "author": "C.S. Lewis", "imgUrl": "https://images.cdn1.buscalibre.com/fit-in/360x360/3e/d1/3ed17c865085a0e86f93037e16d20257.jpg", "stock": 110}
+{"index": {"_index": "books"}}
+{"rating": 4.8, "isbn": "9786821591037", "price": 16.25, "visible": true, "publicationDate": "1937-09-21", "id": "9", "category": "Fantas\u00eda", "title": "El Hobbit", "author": "J.R.R. Tolkien", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/40/a5/40a54aa2a241ee753cc763d4160bbebd.jpg", "stock": 75}
+{"index": {"_index": "books"}}
+{"rating": 4.7, "isbn": "9783534405138", "price": 28.0, "visible": true, "publicationDate": "1986-09-15", "id": "10", "category": "Terror", "title": "It", "author": "Stephen King", "imgUrl": "https://images.cdn1.buscalibre.com/fit-in/360x360/ff/ec/ffecaba38f22e8d748e8472358d3e124.jpg", "stock": 65}
+{"index": {"_index": "books"}}
+{"rating": 4.6, "isbn": "9799303517542", "price": 20.5, "visible": true, "publicationDate": "1977-01-28", "id": "11", "category": "Terror Psicol\u00f3gico", "title": "El Resplandor", "author": "Stephen King", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/d8/f7/d8f7aa458a503b773cc67cff5a22a3a5.jpg", "stock": 55}
+{"index": {"_index": "books"}}
+{"rating": 4.5, "isbn": "9781276181904", "price": 17.99, "visible": true, "publicationDate": "1983-11-14", "id": "12", "category": "Terror", "title": "Cementerio de Animales", "author": "Stephen King", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/8e/22/8e22ea3b9600fff4386c108d438d2f2c.jpg", "stock": 48}
+{"index": {"_index": "books"}}
+{"rating": 4.4, "isbn": "9781576246965", "price": 12.0, "visible": true, "publicationDate": "1897-05-26", "id": "13", "category": "Terror G\u00f3tico", "title": "Dr\u00e1cula", "author": "Bram Stoker", "imgUrl": "https://images.cdn1.buscalibre.com/fit-in/360x360/3d/d7/3dd7b2d52c5f679fab109869c834a5a1.jpg", "stock": 60}
+{"index": {"_index": "books"}}
+{"rating": 4.3, "isbn": "9780617626420", "price": 10.5, "visible": true, "publicationDate": "1818-01-01", "id": "14", "category": "Terror Cl\u00e1sico", "title": "Frankenstein", "author": "Mary Shelley", "imgUrl": "https://images.cdn2.buscalibre.com/fit-in/360x360/db/cc/dbcc8fa1326710024dddd9b009dba34d.jpg", "stock": 70}

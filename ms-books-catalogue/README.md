@@ -25,20 +25,20 @@ Este microservicio expone una API REST para consultar, crear, actualizar y elimi
 
 ## Tecnologías
 
-* ☕ **Java 17+**
-* 🛠️ **Spring Boot**
-* 🗄️ **Spring Data JPA**
-* 🐘 **Base de datos relacional** (ej: MySQL/H2)
-* 📄 **OpenAPI/Swagger** (documentación de la API)
-* 🧪 **JUnit** (tests)
+- ☕ **Java 17+**
+- 🛠️ **Spring Boot**
+- 🗄️ **Spring Data JPA**
+- 🐘 **Base de datos relacional** (ej: MySQL/H2)
+- 📄 **OpenAPI/Swagger** (documentación de la API)
+- 🧪 **JUnit** (tests)
 
 ---
 
 ## Requisitos
 
-* Java 17 o superior
-* Maven 3.8+
-* (Opcional) Docker
+- Java 17 o superior
+- Maven 3.8+
+- (Opcional) Docker
 
 ---
 
@@ -86,9 +86,9 @@ src/
 
 ## Scripts disponibles
 
-* `./mvnw spring-boot:run` — Levanta el microservicio en modo desarrollo
-* `./mvnw test` — Ejecuta los tests
-* `./mvnw package` — Genera el JAR ejecutable
+- `./mvnw spring-boot:run` — Levanta el microservicio en modo desarrollo
+- `./mvnw test` — Ejecuta los tests
+- `./mvnw package` — Genera el JAR ejecutable
 
 ---
 
@@ -98,6 +98,7 @@ src/
 - `GET /api/books/{id}` — Obtener detalles de un libro
 - `POST /api/books` — Crear un nuevo libro
 - `PUT /api/books/{id}` — Actualizar un libro existente
+- `PATCH /api/books/{id}` — Actualizar un libro existente parcialmente
 - `DELETE /api/books/{id}` — Eliminar un libro
 
 La documentación interactiva de la API está disponible en `/swagger-ui.html` (si está habilitada).

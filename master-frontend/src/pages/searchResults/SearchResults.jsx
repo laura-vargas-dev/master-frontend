@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import books from "../../assets/books.json";
+import { exampleData } from "../../utils/mockData";
 import './SearchResults.scss';
 
 const SearchResults = () => {
@@ -7,7 +7,7 @@ const SearchResults = () => {
     const query = new URLSearchParams(location.search).get("q") || "";
     const lowerQuery = query.toLowerCase();
 
-    const filteredBooks = books.filter(
+    const filteredBooks = exampleData.filter(
         (book) =>
             book.title.toLowerCase().includes(lowerQuery) ||
             book.author.toLowerCase().includes(lowerQuery)
@@ -22,7 +22,7 @@ const SearchResults = () => {
                     {filteredBooks.map((book) => (
                         <li key={book.id} className="search-results__item">
                             <a href={`/book/${book.id}`}>
-                                <img src={book.cover} alt={book.title} />
+                                <img src={book.imgUrl} alt={book.title} />
                                 <div>
                                     <strong>{book.title}</strong><br />
                                     <small>{book.author}</small>

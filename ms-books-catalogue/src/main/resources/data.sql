@@ -1,12 +1,16 @@
-INSERT INTO books (title, author, publication_date, category, isbn, rating, visible, stock, price)
+INSERT INTO books (title, author, publication_date, category, isbn, rating, visible, stock, price, img_url)
 VALUES
-    ('El guardián invisible', 'Dolores Redondo', '2013-01-15', 'Misterio', '9788408114178', 4.5, true, 12, 15.990),
-    ('Cien años de soledad', 'Gabriel García Márquez', '1967-05-30', 'Realismo mágico', '9780307474728', 4.9, true, 7, 23.500),
-    ('La sombra del viento', 'Carlos Ruiz Zafón', '2001-06-06', 'Ficción', '9788408172178', 4.8, true, 10, 18.990),
-    ('Rayuela', 'Julio Cortázar', '1963-02-28', 'Ficción', '9788437604947', 4.6, true, 5, 20.000),
-    ('Sapiens: De animales a dioses', 'Yuval Noah Harari', '2011-01-01', 'Historia', '9788499924213', 4.7, true, 9, 25.750),
-    ('1984', 'George Orwell', '1949-06-08', 'Distopía', '9780451524935', 4.8, true, 15, 12.500),
-    ('Orgullo y prejuicio', 'Jane Austen', '1813-01-28', 'Romance', '9780141439518', 4.4, true, 6, 10.900),
-    ('La ladrona de libros', 'Markus Zusak', '2005-03-14', 'Drama', '9780375842207', 4.5, true, 8, 16.800),
-    ('El nombre del viento', 'Patrick Rothfuss', '2007-03-27', 'Fantasía', '9788401352836', 4.9, true, 11, 22.990),
-    ('Los juegos del hambre', 'Suzanne Collins', '2008-09-14', 'Ciencia ficción', '9780439023528', 4.3, true, 13, 17.250);
+    ('Cien años de soledad', 'Gabriel García Márquez', '1967-05-30', 'Realismo Mágico', '9784997613516', '4.8', 'true', '50', '18.5', 'https://images.cdn1.buscalibre.com/fit-in/360x360/1d/6a/1d6ad330c7c40529139ed4cbb0494608.jpg'),
+    ('El Principito', 'Antoine de Saint-Exupéry', '1943-04-06', 'Ficción Infantil', '9783696315573', '4.9', 'true', '120', '12', 'https://images.cdn2.buscalibre.com/fit-in/360x360/5f/03/5f031acab6bf15ab0fd53925bae84242.jpg'),
+    ('Don Quijote de la Mancha', 'Miguel de Cervantes Saavedra', '1605-01-16', 'Novela Clásica', '9796320620283', '4.7', 'true', '30', '25', 'https://images.cdn2.buscalibre.com/fit-in/360x360/bc/1e/bc1ea2d7004ae114288fb81dad5f283e.jpg'),
+    ('1984', 'George Orwell', '1949-06-08', 'Distopía', '9780268501670', '4.6', 'true', '80', '15.75', 'https://images.cdn1.buscalibre.com/fit-in/360x360/10/42/10426f9e9ae4f7cd9eb5d33cef5aa143.jpg'),
+    ('Crimen y Castigo', 'Fiódor Dostoievski', '1866-01-01', 'Novela Filosófica', '9795192826645', '4.7', 'true', '40', '22', 'https://images.cdn2.buscalibre.com/fit-in/360x360/a8/4e/a84e4e45a9c1bc1111ba8cc7092052e9.jpg'),
+    ('El Señor de los Anillos: La Comunidad del Anillo', 'J.R.R. Tolkien', '1954-07-29', 'Fantasía Épica', '9784538886371', '4.9', 'true', '90', '24.5', 'https://images.cdn2.buscalibre.com/fit-in/360x360/69/a4/69a4dd6da2e71e711a978e1fffb06d33.jpg'),
+    ('Las Crónicas de Narnia: El León, la Bruja y el Armario', 'C.S. Lewis', '1950-10-16', 'Fantasía Infantil', '9784557197042', '4.8', 'true', '110', '14.99', 'https://images.cdn1.buscalibre.com/fit-in/360x360/3e/d1/3ed17c865085a0e86f93037e16d20257.jpg'),
+    ('El Hobbit', 'J.R.R. Tolkien', '1937-09-21', 'Fantasía', '9789542436854', '4.8', 'true', '75', '16.25', 'https://images.cdn2.buscalibre.com/fit-in/360x360/40/a5/40a54aa2a241ee753cc763d4160bbebd.jpg'),
+    ('It', 'Stephen King', '1986-09-15', 'Terror', '9786821591037', '4.7', 'true', '65', '28', 'https://images.cdn1.buscalibre.com/fit-in/360x360/ff/ec/ffecaba38f22e8d748e8472358d3e124.jpg'),
+    ('El Resplandor', 'Stephen King', '1977-01-28', 'Terror Psicológico', '9783534405138', '4.6', 'true', '55', '20.5', 'https://images.cdn2.buscalibre.com/fit-in/360x360/d8/f7/d8f7aa458a503b773cc67cff5a22a3a5.jpg'),
+    ('Cementerio de Animales', 'Stephen King', '1983-11-14', 'Terror', '9799303517542', '4.5', 'true', '48', '17.99', 'https://images.cdn2.buscalibre.com/fit-in/360x360/8e/22/8e22ea3b9600fff4386c108d438d2f2c.jpg'),
+    ('Drácula', 'Bram Stoker', '1897-05-26', 'Terror Gótico', '9781276181904', '4.4', 'true', '60', '12', 'https://images.cdn1.buscalibre.com/fit-in/360x360/3d/d7/3dd7b2d52c5f679fab109869c834a5a1.jpg'),
+    ('Frankenstein', 'Mary Shelley', '1818-01-01', 'Terror Clásico', '9781576246965', '4.3', 'true', '70', '10.5', 'https://images.cdn2.buscalibre.com/fit-in/360x360/db/cc/dbcc8fa1326710024dddd9b009dba34d.jpg'),
+    ('El Hobbit', 'J.R.R. Tolkien', '1937-09-21', 'Fantasía', '9780617626420', '4.9', 'true', '75', '16.25', 'https://images.cdn2.buscalibre.com/fit-in/360x360/40/a5/40a54aa2a241ee753cc763d4160bbebd.jpg');

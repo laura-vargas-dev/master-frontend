@@ -29,4 +29,6 @@ public class CreateBookRequest {
     private Integer stock;
 
     private Double price;
+
+    private String imgUrl;
 }

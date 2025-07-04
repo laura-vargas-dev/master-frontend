@@ -32,7 +32,7 @@ public class BookRepository {
     }
 
     public List<Book> search(String title, String author, LocalDate publicationDate, String category,
-                             String isbn, Double rating, Boolean visible, Integer stock, Double price) {
+                             String isbn, Double rating, Boolean visible, Integer stock, Double price, String imgUlrl) {
         SearchCriteria<Book> spec = new SearchCriteria<>();
 
         if (StringUtils.isNotBlank(title)) {
@@ -69,6 +69,10 @@ public class BookRepository {
 
         if (price != null) {
             spec.add(new SearchStatement(Consts.PRICE, price, SearchOperation.GREATER_THAN_EQUAL));
+        }
+
+        if (imgUlrl != null) {
+            spec.add(new SearchStatement(Consts.IMGURL, imgUlrl, SearchOperation.MATCH));
         }
 
         return repository.findAll(spec);

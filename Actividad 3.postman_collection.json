@@ -1,0 +1,1391 @@
+{
+	"info": {
+		"_postman_id": "e92f42ca-5285-4374-91de-8da6826e67da",
+		"name": "UNIR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11617654"
+	},
+	"item": [
+		{
+			"name": "ms-books-catalogue",
+			"item": [
+				{
+					"name": "Get all books with filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/books?title=a&author=Carlos&visible=true&category=ficción&publicationDate=2001-06-06",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "a"
+								},
+								{
+									"key": "author",
+									"value": "Carlos"
+								},
+								{
+									"key": "visible",
+									"value": "true"
+								},
+								{
+									"key": "category",
+									"value": "ficción"
+								},
+								{
+									"key": "publicationDate",
+									"value": "2001-06-06"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"// When there are books created\r",
+									"if (jsonData.length != 0) {\r",
+									"    pm.test(\"Status code is 200 when a list book exist\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// When there are no created books\r",
+									"else {\r",
+									"    pm.test(\"Status code 200 if there are no books\", function () {\r",
+									"        const jsonData = pm.response.json();\r",
+									"        pm.response.to.have.status(200);\r",
+									"        pm.expect(jsonData).to.eql([]);\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get book by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const searchID = pm.request.url.path[2];\r",
+									"\r",
+									"// Search an existing book\r",
+									"if (searchID <= 10) {\r",
+									"    pm.test(\"Status code is 200 when a book exist\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"The body contains the book id\", function () {\r",
+									"        const jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData.id).to.eql(Number(searchID));\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"The body contains the book title\", function () {\r",
+									"        const jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData).to.have.property(\"title\")\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"The body contains the book author\", function () {\r",
+									"        const jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData).to.have.property(\"author\")\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"The body contains the book price\", function () {\r",
+									"        const jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData).to.have.property(\"price\")\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// Search for a book that doesn't exist\r",
+									"else {\r",
+									"    pm.test(\"Status code is 404 when a book doesn't exist\", function () {\r",
+									"        pm.response.to.have.status(404);\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/books/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const status = pm.response.status;\r",
+									"\r",
+									"// When a book is created correctly\r",
+									"if (status == 'Created') {\r",
+									"    const jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.test(\"Status code is 201 when create a book\", function () {\r",
+									"        pm.response.to.have.status(201);\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"The body contains the book title\", function () {\r",
+									"        pm.expect(jsonData).to.have.property(\"title\")\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"The body contains the book author\", function () {\r",
+									"        pm.expect(jsonData).to.have.property(\"author\")\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// When a book is not created correctly\r",
+									"else {\r",
+									"    pm.test(\"Status code is 400 when create a book that already exists\", function () {\r",
+									"        pm.response.to.have.status(400);\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Kafka en la orilla\",\r\n    \"author\": \"Haruki Murakami\",\r\n    \"publicationDate\": \"2002-09-12\",\r\n    \"category\": \"Ficción contemporánea\",\r\n    \"isbn\": \"9788499084917\",\r\n    \"rating\": 4.6,\r\n    \"visible\": true,\r\n    \"stock\": 9,\r\n    \"price\": 19.950\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify book completely",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"El guardián invisible\",\r\n    \"author\": \"Dolores Redondo\",\r\n    \"publicationDate\": \"2013-01-15\",\r\n    \"category\": \"Misterio\",\r\n    \"isbn\": \"9788408114178\",\r\n    \"rating\": 4.5,\r\n    \"visible\": true,\r\n    \"stock\": 6,\r\n    \"price\": 15.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/books/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify book partially",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/books/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const searchID = pm.request.url.path[2];\r",
+									"\r",
+									"// Delete an existing book\r",
+									"if (searchID <= 10) {\r",
+									"    pm.test(\"Status code is 200 when a book exist\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"\r",
+									"}\r",
+									"\r",
+									"// Delete for a book that doesn't exist\r",
+									"else {\r",
+									"    pm.test(\"Status code is 404 when a book doesn't exist\", function () {\r",
+									"        pm.response.to.have.status(404);\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\": 6\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/books/10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ms-books-payments",
+			"item": [
+				{
+					"name": "Get all purchases",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlp}}/api/purchases",
+							"host": [
+								"{{urlp}}"
+							],
+							"path": [
+								"api",
+								"purchases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get purchase by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlp}}/api/purchases/1",
+							"host": [
+								"{{urlp}}"
+							],
+							"path": [
+								"api",
+								"purchases",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add purchase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"purchaseDate\": \"2025-06-12\",\r\n    \"totalAmount\": 5,\r\n    \"books\": [\"1\"],\r\n    \"customerName\": \"Laura Vargas\",\r\n    \"customerEmail\":\"laura@email.com\",\r\n    \"status\": \"PENDING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlp}}/api/purchases",
+							"host": [
+								"{{urlp}}"
+							],
+							"path": [
+								"api",
+								"purchases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify  purchase completely",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"purchaseDate\": \"2025-06-12\",\r\n    \"totalAmount\": 5,\r\n    \"books\": [\"1\", \"3\", \"4\"],\r\n    \"customerName\": \"Laura Vargas\",\r\n    \"customerEmail\":\"laura@email.com\",\r\n    \"status\": \"PENDING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlp}}/api/purchases/1",
+							"host": [
+								"{{urlp}}"
+							],
+							"path": [
+								"api",
+								"purchases",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify purchase partially",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"COMPLETED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlp}}/api/purchases/1",
+							"host": [
+								"{{urlp}}"
+							],
+							"path": [
+								"api",
+								"purchases",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete purchase",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlp}}/api/purchases/1",
+							"host": [
+								"{{urlp}}"
+							],
+							"path": [
+								"api",
+								"purchases",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gateway",
+			"item": [
+				{
+					"name": "Catalogue",
+					"item": [
+						{
+							"name": "Get all books with filters gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\":\"GET\",\r\n    \"queryParams\": {\r\n        \"visible\": [true],\r\n        \"title\": [\"r\"]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add book gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"POST\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"title\": \"Kafka en la orilla\",\r\n        \"author\": \"Haruki Murakami\",\r\n        \"publicationDate\": \"2002-09-12\",\r\n        \"category\": \"Ficción contemporánea\",\r\n        \"isbn\": \"9788499084917\",\r\n        \"rating\": 4.6,\r\n        \"visible\": true,\r\n        \"stock\": 9,\r\n        \"price\": 19.950\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify book completely gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PUT\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"id\": 1,\r\n        \"title\": \"El guardián invisible\",\r\n        \"author\": \"Dolores Redondo\",\r\n        \"publicationDate\": \"2013-01-15\",\r\n        \"category\": \"Misterio\",\r\n        \"isbn\": \"9788408114178\",\r\n        \"rating\": 4.5,\r\n        \"visible\": true,\r\n        \"stock\": 6,\r\n        \"price\": 15.99\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify book partially gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PATCH\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"stock\": 16,\r\n        \"price\": 15.99\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete book gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"DELETE\",\r\n    \"queryParams\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-catalogue/api/books/11",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-catalogue",
+										"api",
+										"books",
+										"11"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payments",
+					"item": [
+						{
+							"name": "Get all purchases gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\":\"GET\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add purchase gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"POST\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"purchaseDate\": \"2025-06-12\",\r\n        \"totalAmount\": 5,\r\n        \"books\": [\r\n            \"1\"\r\n        ],\r\n        \"customerName\": \"Laura Vargas\",\r\n        \"customerEmail\": \"laura@email.com\",\r\n        \"status\": \"PENDING\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify purchase completelly gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PUT\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"id\": 4,\r\n        \"purchaseDate\": \"2025-06-12T00:00:00.000+00:00\",\r\n        \"totalAmount\": 5.0,\r\n        \"books\": [\r\n            \"1\",\r\n            \"3\",\r\n            \"4\"\r\n        ],\r\n        \"customerName\": \"Laura Vargas\",\r\n        \"customerEmail\": \"laura@email.com\",\r\n        \"status\": \"PENDING\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify purchase partially gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"PATCH\",\r\n    \"queryParams\": {},\r\n    \"body\": {\r\n        \"totalAmount\": 3.0,\r\n        \"status\": \"COMPLETED\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases/1",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete purchase gateway",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetMethod\": \"DELETE\",\r\n    \"queryParams\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlg}}/ms-books-payments/api/purchases/6",
+									"host": [
+										"{{urlg}}"
+									],
+									"path": [
+										"ms-books-payments",
+										"api",
+										"purchases",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "back-end-inventory-books-elasticsearch",
+			"item": [
+				{
+					"name": "Bonsai.io",
+					"item": [
+						{
+							"name": "Indices",
+							"item": [
+								{
+									"name": "Obtener todos los indices",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{elasticsearch-host}}/_cat/indices",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"_cat",
+												"indices"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminacion de indice",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{elasticsearch-host}}/books",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mapping",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{elasticsearch-host}}/books",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mapping",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{elasticsearch-host}}/books",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Documentos",
+							"item": [
+								{
+									"name": "Obtener por ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_doc/SazI1ZcBJW4WC4k7MLPZ",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_doc",
+												"SazI1ZcBJW4WC4k7MLPZ"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modificar",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"book-0009\",\n    \"title\": \"El Hobbit\",\n    \"author\": \"J.R.R. Tolkien\",\n    \"publicationDate\": \"1937-09-21\",\n    \"category\": \"Fantasía\",\n    \"isbn\": \"978-84-450-7140-7\",\n    \"rating\": 4.9,\n    \"visible\": true,\n    \"stock\": 75,\n    \"price\": 16.25,\n    \"imgUrl\": \"https://images.cdn2.buscalibre.com/fit-in/360x360/40/a5/40a54aa2a241ee753cc763d4160bbebd.jpg\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_doc/SazI1ZcBJW4WC4k7MLPZ",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_doc",
+												"SazI1ZcBJW4WC4k7MLPZ"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminar",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_doc/SqzI1ZcBJW4WC4k7MLPa",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_doc",
+												"SqzI1ZcBJW4WC4k7MLPa"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Obtener varios de un Indice",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_search",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_search"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Agregaciones",
+							"item": [
+								{
+									"name": "Bucket Aggregation (I)",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"size\": 10,\n    \"query\": {\n        \"multi_match\": {\n            \"query\": \"S\",\n            \"type\": \"bool_prefix\",\n            \"fields\": [\n                \"author\",\n                \"author._2gram\",\n                \"author._3gram\"\n            ]\n        }\n    },\n    \"aggs\": {\n        \"Categorias\": {\n            \"terms\": {\n                \"field\": \"category\"\n            }\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_search",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Bucket Aggregation (II)",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"size\": 10,\n    \"query\": {\n        \"multi_match\": {\n            \"query\": \"S\",\n            \"type\": \"bool_prefix\",\n            \"fields\": [\n                \"author\",\n                \"author._2gram\",\n                \"author._3gram\"\n            ]\n        }\n    },\n    \"aggs\": {\n        \"Rangos de precios\": {\n            \"range\": {\n                \"field\": \"price\",\n                \"ranges\": [\n                    {\"key\": \"De 1 a 15\", \"from\": 1.0, \"to\": 15.0},\n                    {\"key\": \"A partir de 20\", \"from\": 25.0},\n                    {\"key\": \"Hasta 30\", \"to\": 30.0}\n                ]\n            }\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_search",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Metric Aggregation",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"size\": 10,\n    \"query\": {\n        \"multi_match\": {\n            \"query\": \"S\",\n            \"type\": \"bool_prefix\",\n            \"fields\": [\n                \"author\",\n                \"author._2gram\",\n                \"author._3gram\"\n            ]\n        }\n    },\n    \"aggs\": {\n        \"Prodio calificacion\": {\n            \"avg\": {\n                \"field\": \"rating\"\n            }\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_search",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Sub Aggregation",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"size\": 10,\n    \"query\": {\n        \"multi_match\": {\n            \"query\": \"S\",\n            \"type\": \"bool_prefix\",\n            \"fields\": [\n                \"author\",\n                \"author._2gram\",\n                \"author._3gram\"\n            ]\n        }\n    },\n    \"aggs\": {\n        \"Categorias\": {\n            \"terms\": {\n                \"field\": \"category\"\n            },\n            \"aggs\": {\n                \"Stock promedio\": {\n                    \"avg\": {\n                        \"field\": \"stock\"\n                    }\n                }\n            }\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{elasticsearch-host}}/books/_search",
+											"host": [
+												"{{elasticsearch-host}}"
+											],
+											"path": [
+												"books",
+												"_search"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Elasticsearch",
+					"item": [
+						{
+							"name": "Documentos",
+							"item": [
+								{
+									"name": "Get all books",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/elastic/books",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"elastic",
+												"books"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get book by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/elastic/books/3Qr91pcBTo8i77nQgMzy",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"elastic",
+												"books",
+												"3Qr91pcBTo8i77nQgMzy"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get book by keyword",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/elastic/books?category=Realismo Mágico",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"elastic",
+												"books"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "Realismo Mágico"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get book by Search_As_You_Type",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/elastic/books?author=J",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"elastic",
+												"books"
+											],
+											"query": [
+												{
+													"key": "author",
+													"value": "J"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get book by title",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/elastic/books?title=El",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"elastic",
+												"books"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "El"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a book",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"book-0015\",\r\n    \"title\": \"Orgullo y Prejuicio\",\r\n    \"author\": \"Jane Austen\",\r\n    \"publicationDate\": \"1813-01-28\",\r\n    \"category\": \"Romanticismo\",\r\n    \"isbn\": \"978-84-9105-016-8\",\r\n    \"rating\": 4.8,\r\n    \"visible\": true,\r\n    \"stock\": 85,\r\n    \"price\": 14.00,\r\n    \"imgUrl\": \"https://images.cdn1.buscalibre.com/fit-in/360x360/11/e5/11e528dde9f63691353797fe7efe9b5e.jpg\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{urle}}/elastic/books",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"elastic",
+												"books"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete book by id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/elastic/books/BQrx1ZcBTo8i77nQ2sOf",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"elastic",
+												"books",
+												"BQrx1ZcBTo8i77nQ2sOf"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Agregaciones",
+							"item": [
+								{
+									"name": "Get all by page",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/facets/books?page=2",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"facets",
+												"books"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get by page with querys",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/facets/books?title=&author=&category=&page=0",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"facets",
+												"books"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": ""
+												},
+												{
+													"key": "author",
+													"value": ""
+												},
+												{
+													"key": "category",
+													"value": ""
+												},
+												{
+													"key": "page",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get by page with stock > 90",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/facets/books?title=&author=&category=&stockValues=90-&page=0",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"facets",
+												"books"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": ""
+												},
+												{
+													"key": "author",
+													"value": ""
+												},
+												{
+													"key": "category",
+													"value": ""
+												},
+												{
+													"key": "stockValues",
+													"value": "90-"
+												},
+												{
+													"key": "page",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get by page with 3 > rating > 4.5",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{urle}}/facets/books?title=&author=&category=&ratingValues=3.0-4.5&page=0",
+											"host": [
+												"{{urle}}"
+											],
+											"path": [
+												"facets",
+												"books"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": ""
+												},
+												{
+													"key": "author",
+													"value": ""
+												},
+												{
+													"key": "category",
+													"value": ""
+												},
+												{
+													"key": "ratingValues",
+													"value": "3.0-4.5"
+												},
+												{
+													"key": "page",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
